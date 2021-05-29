@@ -1,0 +1,38 @@
+clear all
+clc
+
+% Declare symbolic variables
+syms n mu Vx Vy r Fm delta dFm dDelta lf lr m Mz Iz tire_forces_rear.F_y tire_forces_front.F_y param_.Cr0 param_.Cr2 k(s) ...
+param_.Df param_.Cf param_.Bf
+
+% Friction force
+friction_force = - param_.Cr0 - param_.Cr2*Vx*Vx;
+
+% Tire front force
+alpha_f = -atan2(Vy+r*lf,Vx) + delta;
+tire_forces_front.F_y = param_.Df * sin(param_.Cf * atan(param_.Bf * alpha_f ));
+
+
+
+f1 = vx * sin(mu) + vy * cos(mu);
+f2 = r - k(s) * (vx * cos(mu) - vy * sin (mu)/(1-n*k(s)));
+f3 = 1.0/m*(Fm * (1+cos(delta)) - friction_force - tire_forces_front.F_y*sin(delta) + m*vy*r);
+f4 = 1.0/m*(Fm * sin(delta) + tire_forces_rear.F_y + tire_forces_front.F_y*cos(delta) - m*vx*r);
+f5 = 1.0/Iz*(Fm * sin(delta)*lf + tire_forces_front.F_y*lf*cos(delta) - tire_forces_rear.F_y*lr + Mz);
+f6 = dFm;
+f7 = dDelta;
+
+
+
+
+% Matrix A
+f1_dio = diff(f1,n);
+
+
+
+
+
+
+
+
+

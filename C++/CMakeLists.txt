@@ -32,6 +32,27 @@ add_executable(MPCC
         Plotting/plotting.cpp
         Plotting/plotting.h)
 
+add_executable(Test
+        scratch.cpp
+        types.cpp
+        types.h
+        config.h
+        Params/params.cpp
+        Spline/cubic_spline.cpp
+        Spline/arc_length_spline.cpp
+        Interfaces/hpipm_interface.cpp
+        Interfaces/solver_interface.cpp
+        Constraints/constraints.cpp
+        Constraints/bounds.cpp
+        Cost/cost.cpp
+        Model/model.cpp
+        Model/integrator.cpp
+        MPC/mpc.cpp
+        Params/track.cpp
+        Params/track.h
+        Plotting/plotting.cpp
+        Plotting/plotting.h)
+
 find_package(PythonLibs 2.7)
 target_include_directories(MPCC PRIVATE ${PYTHON_INCLUDE_DIRS})
 target_link_libraries(MPCC ${PYTHON_LIBRARIES})

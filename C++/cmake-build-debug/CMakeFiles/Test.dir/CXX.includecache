@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/driverless/Downloads/MPCC/C++/scratch.cpp
+model.h
+/home/driverless/Downloads/MPCC/C++/model.h
+

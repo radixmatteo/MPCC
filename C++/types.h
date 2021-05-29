@@ -20,42 +20,29 @@
 #include "config.h"
 namespace mpcc{
 struct State{
-    double X;
-    double Y;
-    double phi;
+    double n;
+    double mu;
     double vx;
     double vy;
     double r;
-    double s;
-    double D;
+    double Fm;
     double delta;
-    double vs;
+    double k;
 
     void setZero()
     {
-        X = 0.0;
-        Y = 0.0;
-        phi = 0.0;
+        n = 0.0;
+        mu = 0.0;
         vx = 0.0;
         vy = 0.0;
         r = 0.0;
-        s = 0.0;
-        D = 0.0;
+        Fm = 0.0;
         delta = 0.0;
-        vs = 0.0;
+        k = 0.0;
     }
 
     void unwrap(double track_length)
     {
-        if (phi > M_PI)
-            phi -= 2.0 * M_PI;
-        if (phi < -M_PI)
-            phi += 2.0 * M_PI;
-
-        if (s > track_length)
-            s -= track_length;
-        if (s < 0)
-            s += track_length;
     }
 
     void vxNonZero(double vx_zero)
@@ -70,15 +57,16 @@ struct State{
 };
 
 struct Input{
-    double dD;
+    double dFm;
     double dDelta;
-    double dVs;
+    double Mz;
+    double dk;
 
     void setZero()
     {
-        dD = 0.0;
+        dFm = 0.0;
         dDelta = 0.0;
-        dVs = 0.0;
+        Mz = 0.0;
     }
 };
 

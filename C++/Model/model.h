@@ -39,20 +39,6 @@ struct NormalForces {
     const double F_N_rear;
 };
 
-struct TireForcesDerivatives{
-    const double dF_y_vx;
-    const double dF_y_vy;
-    const double dF_y_r;
-    const double dF_y_D;
-    const double dF_y_delta;
-
-    const double dF_x_vx;
-    const double dF_x_vy;
-    const double dF_x_r;
-    const double dF_x_D;
-    const double dF_x_delta;
-};
-
 struct FrictionForceDerivatives {
     const double dF_f_vx;
     const double dF_f_vy;
@@ -70,10 +56,6 @@ public:
     TireForces getForceRear(const State &x) const;
     double getForceFriction(const State &x) const;
     NormalForces getForceNormal(const State &x) const;
-
-    TireForcesDerivatives getForceFrontDerivatives(const State &x) const;
-    TireForcesDerivatives getForceRearDerivatives(const State &x) const;
-    FrictionForceDerivatives getForceFrictionDerivatives(const State &x) const;
 
     StateVector getF(const State &x,const Input &u) const;
 

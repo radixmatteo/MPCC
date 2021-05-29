@@ -22,6 +22,7 @@ Plotting::Plotting(double Ts,PathToJson path)
 param_(Param(path.param_path))
 {
 }
+/*
 void Plotting::plotRun(const std::list<MPCReturn> &log, const TrackPos &track_xy) const
 {
 
@@ -217,4 +218,5 @@ void Plotting::plotBox(const State &x0) const
 
     plt::plot(corner_x,corner_y,"k-");
 }
+*/
 }

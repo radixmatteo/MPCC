@@ -1,0 +1,54 @@
+clear all
+clc
+
+% Declare symbolic variables
+syms n mu Vx Vy r Fm delta dFm dDelta lf lr m Mz Iz tire_forces_rearF_y tire_forces_frontF_y param_Cr0 param_Cr2 k(s)
+syms param_Df param_Cf param_Bf alpha_f alpha_
+
+% Friction force
+friction_force = - param_Cr0 - param_Cr2*Vx*Vx;
+
+% Tire front force
+alpha_f = -atan2(Vy+r*lf,Vx) + delta;
+tire_forces_frontF_y = param_Df * sin(param_Cf * atan(param_Bf * alpha_f ));
+
+
+% Continuous time model
+f1 = Vx * sin(mu) + Vy * cos(mu);
+f2 = r - k(s) * (Vx * cos(mu) - Vy * sin (mu)/(1-n*k(s)));
+f3 = 1.0/m*(Fm * (1+cos(delta)) - friction_force - tire_forces_frontF_y*sin(delta) + m*Vy*r);
+f4 = 1.0/m*(Fm * sin(delta) + tire_forces_rearF_y + tire_forces_frontF_y*cos(delta) - m*Vx*r);
+f5 = 1.0/Iz*(Fm * sin(delta)*lf + tire_forces_frontF_y*lf*cos(delta) - tire_forces_rearF_y*lr + Mz);
+f6 = dFm;
+f7 = dDelta;
+
+diff(tire_forces_frontF_y,Vx)
+
+% Matrix A e B
+
+f = f3;
+
+% df = diff(f,n)
+% df = diff(f,mu)
+% df = diff(f,Vx)
+% df = diff(f,Vy)
+% df = diff(f,r)
+% df = diff(f,Fm)
+% df = diff(f,delta)
+% 
+% df = diff(f,dFm)
+% df = diff(f,dDelta)
+% df = diff(f,Mz)
+
+
+
+
+
+
+
+
+
+
+
+
+

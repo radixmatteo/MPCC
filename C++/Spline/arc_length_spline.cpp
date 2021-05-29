@@ -25,6 +25,7 @@ ArcLengthSpline::ArcLengthSpline(const PathToJson &path)
 {
 }
 
+/*
 void ArcLengthSpline::setData(const Eigen::VectorXd &X_in,const Eigen::VectorXd &Y_in)
 {
     // set input data if x and y have same length
@@ -307,4 +308,5 @@ double ArcLengthSpline::porjectOnSpline(const State &x) const
     // something is strange if it did not converge within 20 iterations, give back the initial guess
     return s_guess;
 }
+*/
 }

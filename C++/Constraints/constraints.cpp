@@ -27,6 +27,7 @@ param_(Param(path.param_path))
 {
 }
 
+/*
 OneDConstraint Constraints::getTrackConstraints(const ArcLengthSpline &track,const State &x) const
 {
     // given arc length s and the track -> compute linearized track constraints
@@ -113,7 +114,7 @@ C_i_MPC Constraints::getTireConstraintRearJac(const State &x) const
 
     return Jac_tireCon;
 }
-
+*/
 OneDConstraint Constraints::getAlphaConstraintFront(const State &x) const
 {
     // compute linearized slip angle constraints
@@ -156,35 +157,36 @@ C_i_MPC Constraints::getAlphaConstraintFrontJac(const State &x) const
 
 }
 
+
 ConstrainsMatrix Constraints::getConstraints(const ArcLengthSpline &track,const State &x,const Input &u) const
 {
     // compute all the polytopic state constraints
     // compute the three constraints
 
     ConstrainsMatrix constrains_matrix;
-    const OneDConstraint track_constraints = getTrackConstraints(track,x);
-    const OneDConstraint tire_constraints_rear = getTireConstraintRear(x);
+    //const OneDConstraint track_constraints = getTrackConstraints(track,x);
+    //const OneDConstraint tire_constraints_rear = getTireConstraintRear(x);
     const OneDConstraint alpha_constraints_front = getAlphaConstraintFront(x);
 
     C_MPC C_constrains_matrix;
     d_MPC dl_constrains_matrix;
     d_MPC du_constrains_matrix;
 
-    C_constrains_matrix.row(si_index.con_track) = track_constraints.C_i;
-    dl_constrains_matrix(si_index.con_track) = track_constraints.dl_i;
-    du_constrains_matrix(si_index.con_track) = track_constraints.du_i;
+    //C_constrains_matrix.row(si_index.con_track) = track_constraints.C_i;
+    //dl_constrains_matrix(si_index.con_track) = track_constraints.dl_i;
+    //du_constrains_matrix(si_index.con_track) = track_constraints.du_i;
 
-    C_constrains_matrix.row(si_index.con_tire) = tire_constraints_rear.C_i;
-    dl_constrains_matrix(si_index.con_tire) = tire_constraints_rear.dl_i;
-    du_constrains_matrix(si_index.con_tire) = tire_constraints_rear.du_i;
+    //C_constrains_matrix.row(si_index.con_tire) = tire_constraints_rear.C_i;
+    //dl_constrains_matrix(si_index.con_tire) = tire_constraints_rear.dl_i;
+    //du_constrains_matrix(si_index.con_tire) = tire_constraints_rear.du_i;
 
     C_constrains_matrix.row(si_index.con_alpha) = alpha_constraints_front.C_i;
     dl_constrains_matrix(si_index.con_alpha) = alpha_constraints_front.dl_i;
     du_constrains_matrix(si_index.con_alpha) = alpha_constraints_front.du_i;
 
     // TODO consider the zero order term directly in the functions construdcing the constraints
-    dl_constrains_matrix = dl_constrains_matrix -  C_constrains_matrix*stateToVector(x);   
-    du_constrains_matrix = du_constrains_matrix -  C_constrains_matrix*stateToVector(x);   
+    //dl_constrains_matrix = dl_constrains_matrix -  C_constrains_matrix*stateToVector(x);
+    //du_constrains_matrix = du_constrains_matrix -  C_constrains_matrix*stateToVector(x);
 
     return {C_constrains_matrix,D_MPC::Zero(),dl_constrains_matrix,du_constrains_matrix};
 }

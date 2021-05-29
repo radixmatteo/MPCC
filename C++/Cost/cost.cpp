@@ -27,6 +27,7 @@ param_(Param(path.param_path))
 {
 }
 
+/*
 TrackPoint Cost::getRefPoint(const ArcLengthSpline &track,const State &x) const
 {
     // compute all the geometry information of the track at a given arc length
@@ -198,6 +199,7 @@ CostMatrix Cost::getHeadingCost(const ArcLengthSpline &track, const State &x,int
 
     return {Q_heading_cost,R_MPC::Zero(),S_MPC::Zero(),q_heading_cost,r_MPC::Zero(),Z_MPC::Zero(),z_MPC::Zero()};
 }
+*/
 
 CostMatrix Cost::getInputCost() const
 {
@@ -205,13 +207,13 @@ CostMatrix Cost::getInputCost() const
     Q_MPC Q_input_cost = Q_MPC::Zero();
     R_MPC R_input_cost = R_MPC::Zero();
     // cost of "real" inputs
-    Q_input_cost(si_index.D,si_index.D) = cost_param_.r_D;
     Q_input_cost(si_index.delta,si_index.delta) = cost_param_.r_delta;
-    Q_input_cost(si_index.vs,si_index.vs) = cost_param_.r_vs;
+    Q_input_cost(si_index.vx,si_index.vx) = cost_param_.q_vx;
+    Q_input_cost(si_index.n,si_index.n) = cost_param_.q_n;
     // quadratic part
-    R_input_cost(si_index.dD,si_index.dD) = cost_param_.r_dD;
+    R_input_cost(si_index.dFm,si_index.dFm) = cost_param_.r_dFm;
     R_input_cost(si_index.dDelta,si_index.dDelta) = cost_param_.r_dDelta;
-    R_input_cost(si_index.dVs,si_index.dVs) = cost_param_.r_dVs;
+    R_input_cost(si_index.Mz,si_index.Mz) = cost_param_.r_Mz;
     // solver interface expects 0.5 u^T R u + r^T u
     Q_input_cost = 2.0*Q_input_cost;
     R_input_cost = 2.0*R_input_cost;
@@ -219,6 +221,7 @@ CostMatrix Cost::getInputCost() const
     return {Q_input_cost,R_input_cost,S_MPC::Zero(),q_MPC::Zero(),r_MPC::Zero(),Z_MPC::Zero(),z_MPC::Zero()};
 }
 
+/*
 CostMatrix Cost::getSoftConstraintCost() const
 {
     // input cost and rate of chagen of real inputs
@@ -236,35 +239,43 @@ CostMatrix Cost::getSoftConstraintCost() const
 
     return {Q_MPC::Zero(),R_MPC::Zero(),S_MPC::Zero(),q_MPC::Zero(),r_MPC::Zero(),Z_cost,z_cost};
 }
+*/
 
 CostMatrix Cost::getCost(const ArcLengthSpline &track, const State &x, const Input &u,const int k) const
 {
     // generate quadratic cost function
-    const CostMatrix contouring_cost = getContouringCost(track,x,k);
-    const CostMatrix heading_cost = getHeadingCost(track,x,k);
+//const CostMatrix contouring_cost = getContouringCost(track,x,k);
+//const CostMatrix heading_cost = getHeadingCost(track,x,k);
     const CostMatrix input_cost = getInputCost();
-    CostMatrix beta_cost;
-    if(cost_param_.beta_kin_cost == 1)
-        beta_cost = getBetaKinCost(x);
-    else
-        beta_cost = getBetaCost(x);
-    const CostMatrix soft_con_cost = getSoftConstraintCost();
+    //CostMatrix beta_cost;
+    //if(cost_param_.beta_kin_cost == 1)
+    //    beta_cost = getBetaKinCost(x);
+    //else
+    //    beta_cost = getBetaCost(x);
+    //const CostMatrix soft_con_cost = getSoftConstraintCost();
 
-    Q_MPC Q_not_sym = contouring_cost.Q + heading_cost.Q + input_cost.Q + beta_cost.Q;
+    //Q_MPC Q_not_sym = contouring_cost.Q + heading_cost.Q + input_cost.Q + beta_cost.Q;
+    Q_MPC Q_not_sym = input_cost.Q;
     Q_MPC Q_reg = 1e-9*Q_MPC::Identity();
 
     Q_MPC Q_full = 0.5*(Q_not_sym.transpose()+Q_not_sym);
-    R_MPC R_full = contouring_cost.R + heading_cost.R + input_cost.R + beta_cost.R;
-    q_MPC q_full = contouring_cost.q + heading_cost.q + input_cost.q + beta_cost.q;
-    r_MPC r_full = contouring_cost.r + heading_cost.r + input_cost.r + beta_cost.r;
+    //R_MPC R_full = contouring_cost.R + heading_cost.R + input_cost.R + beta_cost.R;
+    //q_MPC q_full = contouring_cost.q + heading_cost.q + input_cost.q + beta_cost.q;
+    //r_MPC r_full = contouring_cost.r + heading_cost.r + input_cost.r + beta_cost.r;
+    R_MPC R_full = input_cost.R;
+    q_MPC q_full = input_cost.q;
+    r_MPC r_full = input_cost.r;
+
 
     //TODO do this properly directly in the differnet functions computing the cost
     const Q_MPC Q = Q_full;
     const R_MPC R = R_full;
     const q_MPC q = q_full + (stateToVector(x).adjoint()*Q_full).adjoint(); 
     const r_MPC r = r_full + (inputToVector(u).adjoint()*R_full).adjoint();
-    const Z_MPC Z = 2.0*soft_con_cost.Z;
-    const z_MPC z = soft_con_cost.z;
+    //const Z_MPC Z = 2.0*soft_con_cost.Z;
+    //const z_MPC z = soft_con_cost.z;
+    const Z_MPC Z;
+    const z_MPC z;
 
 
     return {Q,R,S_MPC::Zero(),q,r,Z,z};

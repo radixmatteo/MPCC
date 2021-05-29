@@ -55,16 +55,17 @@ int main() {
     Integrator integrator = Integrator(jsonConfig["Ts"],json_paths);
     Plotting plotter = Plotting(jsonConfig["Ts"],json_paths);
 
-    Track track = Track(json_paths.track_path);
-    TrackPos track_xy = track.getTrack();
+    //Track track = Track(json_paths.track_path);
+    //TrackPos track_xy = track.getTrack();
 
     std::list<MPCReturn> log;
     MPC mpc(jsonConfig["n_sqp"],jsonConfig["n_reset"],jsonConfig["sqp_mixing"],jsonConfig["Ts"],json_paths);
-    mpc.setTrack(track_xy.X,track_xy.Y);
-    const double phi_0 = std::atan2(track_xy.Y(1) - track_xy.Y(0),track_xy.X(1) - track_xy.X(0));
-    State x0 = {track_xy.X(0),track_xy.Y(0),phi_0,jsonConfig["v0"],0,0,0,0.0,0,jsonConfig["v0"]};
+    //mpc.setTrack(track_xy.X,track_xy.Y);
+    //const double phi_0 = std::atan2(track_xy.Y(1) - track_xy.Y(0),track_xy.X(1) - track_xy.X(0));
+    State x0 = {0,0,5,0,0,0,0, 0};
     for(int i=0;i<jsonConfig["n_sim"];i++)
     {
+        x0.k = 0;
         MPCReturn mpc_sol = mpc.runMPC(x0);
         // Use the MPC prediction as sim step
         // x0 = mpc_sol.mpc_horizon[1].xk;
@@ -72,8 +73,9 @@ int main() {
         x0 = integrator.simTimeStep(x0,mpc_sol.u0,jsonConfig["Ts"]);
         log.push_back(mpc_sol);
     }
-    plotter.plotRun(log,track_xy);
-    plotter.plotSim(log,track_xy);
+
+    //plotter.plotRun(log,track_xy);
+    //plotter.plotSim(log,track_xy);
 
     double mean_time = 0.0;
     double max_time = 0.0;

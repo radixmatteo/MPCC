@@ -56,8 +56,6 @@ public:
     double r_in;
     double r_out;
 
-    double max_dist_proj;
-
     double e_long;
     double e_eps;
 
@@ -77,7 +75,8 @@ class CostParam{
 public:
     double q_c;
     double q_l;
-    double q_vs;
+    double q_vx;
+    double q_n;
 
     double q_mu;
 
@@ -86,24 +85,22 @@ public:
     double q_beta;
     int beta_kin_cost;
 
-    double r_D;
     double r_delta;
-    double r_vs;
 
-    double r_dD;
+    double r_dFm;
     double r_dDelta;
-    double r_dVs;
+    double r_Mz;
 
     double q_c_N_mult;
     double q_r_N_mult;
 
-    double sc_quad_track;
-    double sc_quad_tire;
-    double sc_quad_alpha;
+    //double sc_quad_track;
+    //double sc_quad_tire;
+    //double sc_quad_alpha;
 
-    double sc_lin_track;
-    double sc_lin_tire;
-    double sc_lin_alpha;
+    //double sc_lin_track;
+    //double sc_lin_tire;
+    //double sc_lin_alpha;
 
     CostParam();
     CostParam(std::string file);
@@ -113,38 +110,40 @@ public:
 class BoundsParam{
 public:
     struct LowerStateBounds{
-        double X_l;
-        double Y_l;
-        double phi_l;
+        double n_l;
+        double mu_l;
         double vx_l;
         double vy_l;
         double r_l;
-        double s_l;
-        double D_l;
+        double Fm_l;
         double delta_l;
-        double vs_l;
+        double k_l;
+        double dFm_l;
+        double dDelta_l;
+        double Mz_l;
+        double dk_l;
     };
     struct UpperStateBounds{
-        double X_u;
-        double Y_u;
-        double phi_u;
+        double n_u;
+        double mu_u;
         double vx_u;
         double vy_u;
         double r_u;
-        double s_u;
-        double D_u;
+        double Fm_u;
         double delta_u;
-        double vs_u;
+        double k_u;
     };
     struct LowerInputBounds{
-        double dD_l;
+        double dFm_l;
         double dDelta_l;
-        double dVs_l;
+        double Mz_l;
+        double dk_l;
     };
     struct UpperInputBounds{
-        double dD_u;
+        double dFm_u;
         double dDelta_u;
-        double dVs_u;
+        double Mz_u;
+        double dk_u;
     };
 
     LowerStateBounds lower_state_bounds;

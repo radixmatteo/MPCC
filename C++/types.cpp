@@ -20,38 +20,34 @@ namespace mpcc{
 StateVector stateToVector(const State &x)
 {
     StateVector xk;
-    xk(0) = x.X;
-    xk(1) = x.Y;
-    xk(2) = x.phi;
-    xk(3) = x.vx;
-    xk(4) = x.vy;
-    xk(5) = x.r;
-    xk(6) = x.s;
-    xk(7) = x.D;
-    xk(8) = x.delta;
-    xk(9) = x.vs;
+    xk(0) = x.n;
+    xk(1) = x.mu;
+    xk(2) = x.vx;
+    xk(3) = x.vy;
+    xk(4) = x.r;
+    xk(5) = x.Fm;
+    xk(6) = x.delta;
+    xk(7) = x.k;
     return xk;
 }
 
 InputVector inputToVector(const Input &u)
 {
-    InputVector uk = {u.dD,u.dDelta,u.dVs};
+    InputVector uk = {u.dFm,u.dDelta,u.Mz,u.dk};
     return uk;
 }
 
 State vectorToState(const StateVector &xk)
 {
     State x;
-    x.X     = xk(0);
-    x.Y     = xk(1);
-    x.phi   = xk(2);
-    x.vx    = xk(3);
-    x.vy    = xk(4);
-    x.r     = xk(5);
-    x.s     = xk(6);
-    x.D     = xk(7);
-    x.delta = xk(8);
-    x.vs    = xk(9);
+    x.n     = xk(0);
+    x.mu     = xk(1);
+    x.vx    = xk(2);
+    x.vy    = xk(3);
+    x.r     = xk(4);
+    x.Fm     = xk(5);
+    x.delta = xk(6);
+    x.k    = xk(7);
 
     return x;
 }
@@ -59,9 +55,10 @@ State vectorToState(const StateVector &xk)
 Input vectorToInput(const InputVector &uk)
 {
     Input u;
-    u.dD     = uk(0);
+    u.dFm     = uk(0);
     u.dDelta = uk(1);
-    u.dVs    = uk(2);
+    u.Mz    = uk(2);
+    u.dk    = uk(3);
 
     return u;
 }
@@ -69,16 +66,14 @@ Input vectorToInput(const InputVector &uk)
 State arrayToState(double *xk)
 {
     State x;
-    x.X     = xk[0];
-    x.Y     = xk[1];
-    x.phi   = xk[2];
-    x.vx    = xk[3];
-    x.vy    = xk[4];
-    x.r     = xk[5];
-    x.s     = xk[6];
-    x.D     = xk[7];
-    x.delta = xk[8];
-    x.vs    = xk[9];
+    x.n     = xk[0];
+    x.mu     = xk[1];
+    x.vx    = xk[2];
+    x.vy    = xk[3];
+    x.r     = xk[4];
+    x.Fm     = xk[5];
+    x.delta = xk[6];
+    x.k    = xk[7];
 
     return x;
 }
@@ -86,9 +81,10 @@ State arrayToState(double *xk)
 Input arrayToInput(double *uk)
 {
     Input u;
-    u.dD     = uk[0];
+    u.dFm     = uk[0];
     u.dDelta = uk[1];
-    u.dVs    = uk[2];
+    u.Mz    = uk[2];
+    u.dk    = uk[3];
 
     return u;
 }

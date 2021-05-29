@@ -84,11 +84,6 @@ void MPC::setStage(const State &xk, const Input &uk, const State &xk1, const int
     stages_[time_step].l_bounds_s = normalization_param_.T_s_inv*bounds_.getBoundsLS();
     stages_[time_step].u_bounds_s = normalization_param_.T_s_inv*bounds_.getBoundsUS();
 
-    stages_[time_step].l_bounds_x(si_index.s) = normalization_param_.T_x_inv(si_index.s,si_index.s)*
-                                                (-param_.s_trust_region);//*initial_guess_[time_step].xk.vs;
-    stages_[time_step].u_bounds_x(si_index.s) = normalization_param_.T_x_inv(si_index.s,si_index.s)*
-                                                (param_.s_trust_region);//*initial_guess_[time_step].xk.vs;
-
 }
 
 CostMatrix MPC::normalizeCost(const CostMatrix &cost_mat)
@@ -155,24 +150,9 @@ void MPC::updateInitialGuess(const State &x0)
 // alternatively OptVariables MPC::unwrapInitialGuess(const OptVariables &initial_guess)
 void MPC::unwrapInitialGuess()
 {
-    double L = track_.getLength();
     for(int i=1;i<=N;i++)
     {
-        if((initial_guess_[i].xk.phi - initial_guess_[i-1].xk.phi) < -M_PI)
-        {
-            initial_guess_[i].xk.phi += 2.*M_PI;
-        }
-        if((initial_guess_[i].xk.phi - initial_guess_[i-1].xk.phi) > M_PI)
-        {
-            initial_guess_[i].xk.phi -= 2.*M_PI;
-        }
-
-        if((initial_guess_[i].xk.s - initial_guess_[i-1].xk.s) > L/2.)
-        {
-            initial_guess_[i].xk.s -= L;
-        }
     }
-
 }
 
 void MPC::generateNewInitialGuess(const State &x0)
@@ -185,14 +165,7 @@ void MPC::generateNewInitialGuess(const State &x0)
         initial_guess_[i].xk.setZero();
         initial_guess_[i].uk.setZero();
 
-        initial_guess_[i].xk.s = initial_guess_[i-1].xk.s + Ts_*param_.initial_velocity;
-        Eigen::Vector2d track_pos_i = track_.getPostion(initial_guess_[i].xk.s);
-        Eigen::Vector2d track_dpos_i = track_.getDerivative(initial_guess_[i].xk.s);
-        initial_guess_[i].xk.X = track_pos_i(0);
-        initial_guess_[i].xk.Y = track_pos_i(1);
-        initial_guess_[i].xk.phi = atan2(track_dpos_i(1),track_dpos_i(0));
-        initial_guess_[i].xk.vx = param_.initial_velocity;
-        initial_guess_[i].xk.vs = param_.initial_velocity;
+        initial_guess_[i].xk = x0;
     }
     unwrapInitialGuess();
     valid_initial_guess_ = true;
@@ -223,8 +196,6 @@ MPCReturn MPC::runMPC(State &x0)
 {
     auto t1 = std::chrono::high_resolution_clock::now();
     int solver_status = -1;
-    x0.s = track_.porjectOnSpline(x0);
-    x0.unwrap(track_.getLength());
     if(valid_initial_guess_)
         updateInitialGuess(x0);
     else
@@ -262,7 +233,7 @@ MPCReturn MPC::runMPC(State &x0)
 }
 
 void MPC::setTrack(const Eigen::VectorXd &X, const Eigen::VectorXd &Y){
-    track_.gen2DSpline(X,Y);
+    //track_.gen2DSpline(X,Y);
 }
 
 

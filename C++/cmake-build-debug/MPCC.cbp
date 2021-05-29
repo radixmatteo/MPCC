@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MPCC"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/driverless/Downloads/MPCC/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/driverless/Downloads/MPCC/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Test">
+				<Option output="/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/driverless/Downloads/MPCC/C++/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/."/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/blasfeo/lib/include"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/hpipm/lib/include"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/matplotlib"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/Eigen"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/Json/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 Test"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Test/fast">
+				<Option output="/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/driverless/Downloads/MPCC/C++/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/."/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/blasfeo/lib/include"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/hpipm/lib/include"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/matplotlib"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/Eigen"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/Json/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 Test/fast"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/driverless/Downloads/MPCC/C++/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MPCC">
+				<Option output="/home/driverless/Downloads/MPCC/C++/cmake-build-debug/MPCC" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/driverless/Downloads/MPCC/C++/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/."/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/blasfeo/lib/include"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/hpipm/lib/include"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/matplotlib"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/Eigen"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/Json/include"/>
+					<Add directory="/usr/include/python2.7"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 MPCC"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MPCC/fast">
+				<Option output="/home/driverless/Downloads/MPCC/C++/cmake-build-debug/MPCC" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/driverless/Downloads/MPCC/C++/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/."/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/blasfeo/lib/include"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/hpipm/lib/include"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/matplotlib"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/Eigen"/>
+					<Add directory="/home/driverless/Downloads/MPCC/C++/External/Json/include"/>
+					<Add directory="/usr/include/python2.7"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 MPCC/fast"/>
+					<CompileFile command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j20 -f &quot;/home/driverless/Downloads/MPCC/C++/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Constraints/bounds.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Constraints/bounds.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Constraints/constraints.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Constraints/constraints.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Cost/cost.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Cost/cost.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Interfaces/hpipm_interface.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Interfaces/hpipm_interface.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Interfaces/solver_interface.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Interfaces/solver_interface.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/MPC/mpc.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/MPC/mpc.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Model/integrator.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Model/integrator.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Model/model.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Model/model.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Params/params.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Params/params.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Params/track.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Params/track.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Plotting/plotting.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Plotting/plotting.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Spline/arc_length_spline.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Spline/arc_length_spline.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Spline/cubic_spline.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/Spline/cubic_spline.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/config.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/main.cpp">
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/scratch.cpp">
+			<Option target="Test"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/types.cpp">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/types.h">
+			<Option target="Test"/>
+			<Option target="MPCC"/>
+		</Unit>
+		<Unit filename="/home/driverless/Downloads/MPCC/C++/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

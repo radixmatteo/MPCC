@@ -2,7 +2,8 @@
 {
   "qC" : 0.01,
   "qL" : 1000.0,
-  "qVs" : 0.2,
+  "qVx" : 0.2,
+  "qn" : 0.2,
 
   "qMu": 0.1,
 
@@ -11,13 +12,10 @@
   "qBeta" : 5E0,
   "betaKin": 1,
 
-  "rD" : 1E-3,
   "rDelta" : 1E-3,
-  "rVs" : 1E-5,
+  "rdFm" : 1,
 
-  "rdD" : 1E-1,
   "rdDelta" : 5E2,
-  "rdVs" : 1E-4,
 
   "qCNmult": 1000.0,
   "qRNmult": 10.0,
